@@ -18,7 +18,7 @@
                     </a>
                     <ul class="dropdown-menu dropdown-user">
                         @if(Auth::check())
-                        <li><a href="#"><i class="fa fa-user fa-fw"></i>{{Auth::user()->name}} {{Auth::user()->password}}</a>
+                        <li><a href="#"><i class="fa fa-user fa-fw"></i>{{Auth::user()->name}}</a>
                         </li>@endif
                         <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                         </li>
