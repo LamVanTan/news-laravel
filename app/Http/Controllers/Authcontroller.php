@@ -30,7 +30,7 @@ class Authcontroller extends Controller
         $email =$req->mail;
         $password =$req->pass;
 
-    if (Auth::attempt(array('name' => $email, 'password' => $password)))
+    if (Auth::attempt(array('email' => $email, 'password' => $password)))
     {
         return redirect('admin/theloai/danhsach');
     } else {
@@ -43,5 +43,7 @@ class Authcontroller extends Controller
       return redirect('admin/dangnhap');
     
    }
+
+   
     
 }

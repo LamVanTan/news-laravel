@@ -23,20 +23,21 @@
 	<div class="col-3-sm col-3">
 		<nav class="navbar navbar-expand-sm justify-content-center">
 		     <ul class="navbar-nav">
-			    <li class="nav-item" >
-		
-		        <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:silver;">Tan <i class="fas fa-caret-down"></i>
+			    <li class="nav-item"  style="position: relative;top:5px;">
+		        @if(Auth::check()) <span >{{Auth::user()->name}} </span>@endif
+		        <a class="nav-link"  id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:silver; display: inline;">
+		        	 <i class="fas fa-caret-down"></i>
 		        </a>
+		       
 		        <div class="dropdown-menu" aria-labelledby="navbarDropdown" >
-		             <a class="dropdown-item" href="#" id="background1">lời mời kết bạn</a>
+		        	@if(Auth::check())
+		             <a class="dropdown-item" href="dangxuat" id="background1">Đăng Xuất</a>
+		            @else 
+		             <a class="dropdown-item" href="dangnhap" id="background1">Đăng Nhập</a>
+		             @endif
 		           <div class="dropdown-divider"></div>
-		             <a class="dropdown-item" href="#" id="background1">Quảng Cáo Trên Facebook</a>
-		          <div class="dropdown-divider"></div>
-		             <a class="dropdown-item" href="#" id="background1">Nhật Ký Hoạt Động</a>
-		             <a class="dropdown-item" href="#" id="background1">Tùy Chọn Bảng Tin</a>
-		             <a class="dropdown-item" href="#" id="background1">Cài Đặt</a>
-		           <div class="dropdown-divider"></div>
-		             <a class="dropdown-item" href="#" id="background1">Đăt Xuất</a>
+		             <a class="dropdown-item" href="#" id="background1">Trang cá Nhân</a>
+		          
 		        </div>
             </li>
 		</ul>

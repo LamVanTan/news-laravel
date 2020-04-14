@@ -12,9 +12,9 @@
 		        @foreach($TheLoai as $TL)
 		        @if(count($TL->LoaiTin)>0)
 		       <li class="nav-item dropdown">  
-		        <a class="nav-link" id="background" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #0099CC;">
+		        <a class="nav-link cap1" id="background" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #0099CC;">
 		        	<b>{{$TL->Ten}}</b></a>
-		           <div class="dropdown-menu" aria-labelledby="navbarDropdown"  >
+		           <div class="dropdown-menu" aria-labelledby="navbarDropdown" id="con">
 		              @foreach($TL->LoaiTin as $lt)
 		             <a class="dropdown-item" href="loaitin/{{$lt->id}}/{{$lt->Ten}}" id="background1">{{$lt->Ten}}</a>
 		               @endforeach
@@ -29,3 +29,4 @@
 	</div>
 </div>
 </div>
+

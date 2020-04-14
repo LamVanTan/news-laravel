@@ -2,7 +2,7 @@
 @extends('layout.master')
 
 @section('noidung')
-
+<base href="{{asset('')}}">
 <div class="container">
 	<div class="row" style="margin-top: 10px;">
 		<!-- phần left -->

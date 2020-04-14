@@ -43,6 +43,7 @@ a{
 
 #background:hover{
   border-bottom: 5px solid lightseagreen;
+  
   }
 
  #background{
@@ -56,5 +57,10 @@ a{
     transition:all ease-in-out 0.5s; /*hiện thị tốc đọ ảnh hiện lên với thời gian 0.5s*/
     opacity:0.75;
 }
+
+
+
+
+/*phan đăng nhập đăng kí người dùng*/
 
 

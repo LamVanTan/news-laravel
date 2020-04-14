@@ -4,11 +4,13 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="">
 	<title>News</title>
-	<link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.css')}}">
+	<base href="{{asset('')}}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.min.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('style/style.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('fontawesome-free-5.12.0-web/css/all.css')}}">
-	 <base href="{{asset('')}}">
+	<script type="text/javascript" src="js/jquery-3.4.1.min.js" ></script>
+    <script type="text/javascript" src="js/jquery.validate.min.js"></script>
+
 </head>
 <body style="height: 1500px;">
 <div class="container-fluid">
@@ -28,5 +30,5 @@
 <script type="text/javascript" src="{{ asset('style/jquery.js')}}"></script>
 <script type="text/javascript" src="{{ asset('style/jquery2.js')}}"></script>
 
-  @yield('script')
 </html>
+

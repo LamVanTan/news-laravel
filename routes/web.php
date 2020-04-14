@@ -19,6 +19,7 @@ Route::get('/', function () {
 Route::get('admin/dangnhap','Authcontroller@getLogin');
 Route::post('admin/dangnhap','Authcontroller@postLogin');
 Route::get('admin/dangxuat','Authcontroller@logout');
+
 // Trang quan Trị
 
 Route::group(['prefix'=>'admin','middleware'=>'adminlogin'],function() {
@@ -92,6 +93,12 @@ Route::group(['prefix'=>'admin','middleware'=>'adminlogin'],function() {
        Route::get('loaitin/{id}/{ten}','PagesController@getLoaiTin');   
        Route::get('chitiettin/{id}','PagesController@chitiettin');
        Route::post('sreach','PagesController@sreach');
+       Route::get('dangnhap','PagesController@getdangnhap');
+       Route::post('dangnhap','PagesController@postdangnhap');
+       Route::post('dangky', 'PagesController@postdangky');
+       Route::get('dangxuat','PagesController@logout');
+
+       
 
 
 

@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
+use App\Http\Requests;
+use Illuminate\Support\Facades\Auth;
 use App\TheLoai;
 use App\TinTuc;
 use App\LoaiTin;
 use DB;
+use App\UserAdmin;
 use Carbon\Carbon;
 class PagesController extends Controller
 {   
@@ -76,6 +79,42 @@ class PagesController extends Controller
           ->get();
           return view('pages/sreach',['sreach'=>$TinTuc,'tukhoa'=>$tukhoa]);
      }
+
+     public function getdangnhap(){
+      return view('pages/Login');
+   }
+
+   public function postdangnhap(Request $req){
+       
+       $email=$req->user;
+       $password=$req->password;
+       if(Auth::attempt(array('email' => $email, 'password' => $password))){
+           return redirect('trangchu');
+       }
+
+   }
+
+   public function postdangky(Request $req){
+       
+
+          $user = new UserAdmin;
+
+           $user->name=$req->name;
+           $user->email=$req->user;
+           $user->password=bcrypt($req->pass);
+           
+           $user->save();
+
+           return redirect('dangnhap')->with('thongbao','Thêm Thành Công');
+   }
+   
+   public function logout(){
+      Auth::logout();
+      return redirect('trangchu');
+    
+   }
+
+
 
     
 }
