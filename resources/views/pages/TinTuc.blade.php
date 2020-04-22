@@ -1,70 +1,114 @@
-
 @extends('layout.master')
 @section('noidung')
 <div class="container">
- <div class="row" style="margin-top: 10px;">
-     <div class="col-sm-9 col-9 ">
-                   <b>{{$chitiettin->TieuDe}}</b>
-                    <small style="color:silver"><?php 
-                      $dt= $chitiettin->created_at;
-                      echo $th = $dt->diffForHumans($tg); ?>
-                    </small>
-                    <p>{{$chitiettin->TomTat}}
-  	                <img class="rounded " src="img/{{$chitiettin->Hinh}}" alt="img" style="width: 100%" height="350px">
-              
-                <!-- Post Content -->
-                <p style="font-size:18px;">{{$chitiettin->NoiDung}}</p>
-                <hr>
+   <div class="row" style="margin-top: 10px;">
+      <div class="col-sm-9 col-12 ">
+         <b>{{$chitiettin->TieuDe}}</b>
+         <small style="color:silver"><?php 
+            $dt= $chitiettin->created_at;
+            echo $th = $dt->diffForHumans($tg); ?>
+         </small>
+         <p>{{$chitiettin->TomTat}}
+            <img class="rounded img-fluid" src="img/{{$chitiettin->Hinh}}" alt="img" style="width: 100%" height="350px">
+         <p style="font-size:18px;">{{$chitiettin->NoiDung}}</p>
+        
 
-                <!-- Blog Comments -->
 
-                <!-- Comments Form -->
-                <div class="row">
-                    <div class="col-sm-12 col-12">
-                    <h4>Viết bình luận ...<span class="glyphicon glyphicon-pencil"></span></h4>
-                    <form role="form">
-                        <div class="form-group">
-                            <textarea class="form-control" rows="3"></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Gửi</button>
-                    </form>
-                </div>
+          @if(Auth::check())  
+         <div class="row">
+            <div class="col-sm-12 col-12">
+               <h4>Viết bình luận<span class="glyphicon glyphicon-pencil"></span></h4>
+               <form action="Comment/{{$chitiettin->id}}" method="POST" role="form">
+                <input type="hidden" name="_token" value="{{csrf_token()}}">
+                  @if(session('thongbao'))
+                  <div class="alert alert-success" style="overflow: hidden;">
+                     {{session('thongbao')}}
+                  </div>
+                  @endif
+                  <div class="form-group">
+                     <textarea class="form-control" rows="3" name="noidung"></textarea>
+                  </div>
+                  <button type="submit" class="btn" style="background-color: #333333;color: white;font-weight: bold;">Gửi</button>
+               </form>
             </div>
+         </div>
+         @endif
 
-                <hr>
+         <hr>
+         <!-- Posted Comments -->
+         <!-- Comment -->
+         @foreach($binhluan as $bl)
+         
+              <div class="row like">
+                <div class="col-sm-12">
+               <b style="display: block;">{{$bl->name}}</b>
 
-                <!-- Posted Comments -->
+               <small style="font-size: 13px; padding: 5px 15px;">{{$bl->NoiDung}}</small>
 
-                <!-- Comment -->
-                <div class="media">
-                   
-                    <a class="pull-left" href="#">
-                        <img class="media-object" src="http://placehold.it/64x64" alt="">
-                    </a>
-                    <div class="media-body">
-                        <!-- <h4 class="media-heading">
-                            <small></small>
-                        </h4> -->
-                        
-                    </div>
-                </div>
+               <small style="color:silver">
+                <?php  $time= $bl->created_at; echo $time;  ?>
+               </small>
 
-                <!-- Comment -->
-  </div>
+               <p style="margin-left: 20px;" id="like"><i class="fas fa-thumbs-up"></i> <span class="solike"></span></p>
 
-   <div class="col-sm-3 col-3">
-  	<div class="col-sm-12 col-12" style="margin-bottom: 10px;">        
-         <img src="img/quangcao1.jpg" class="rounded" style="width: 100%" height="500">      
-    </div>
-    <div class="col-sm-12 col-12">       
-        <img src="img/quangcao2.jpg" class="rounded" style="width: 100%" height="500">      
-    </div>
-    </div>
-   
-  </div>
-
+             </div>
+             
+         </div>
+         <hr>
+         @endforeach
+      </div>
+      <div class="col-sm-3 col-12" >
+         <div class="row QC" style="margin-bottom: 50px;margin-top: 23px;">
+            <div class="col-sm-12 qc1">
+               <div id="close">
+                  <button type="button" class="close" style="outline: none;">×</button>
+                  <img src="img/quangcao2.jpg" class="rounded img-fluid" style="width: 100%">
+               </div>
+            </div>
+            <div class="col-sm-12 qc1">
+               <div id="close">
+                  <button type="button" class="close" style="outline: none;">×</button>
+                  <img src="img/quangcao3.jpg" class="rounded img-fluid" style="width: 100%">
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
 </div>
-</div>
+<style type="text/css">
+   .close{
+   position: relative;top:25px;
+   right:5px;
+   color: white;
+   }
+   .binhluan{
+    display: block;
+    font-weight: bold;
+    color:#666666; 
+    text-align: center;
+    margin-bottom: 5px;
+    width: 25%;
+    border-radius: 10px;
     
+   }
+</style>
+<script type="text/javascript">
+  var dem=0;
+  var i;
+        $(document).ready(function(){
+           $(".like").click(function(){
+               var so= dem+1;
+               for(i=0;i<=so;i++){
+               $(this).find(".solike").html(so);
+             }
+           });
+     });
+   
+     $(document).ready(function(){
+       $(".QC .qc1").click(function(){
+         $(this).find("#close").hide();
+       })
+     });
+    
+</script>
 @endsection
-

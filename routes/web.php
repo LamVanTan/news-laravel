@@ -97,6 +97,8 @@ Route::group(['prefix'=>'admin','middleware'=>'adminlogin'],function() {
        Route::post('dangnhap','PagesController@postdangnhap');
        Route::post('dangky', 'PagesController@postdangky');
        Route::get('dangxuat','PagesController@logout');
+       Route::post('Comment/{id}','PagesController@Comment');
+      
 
        
 

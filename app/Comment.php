@@ -7,7 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class Comment extends Model
 {
     //
-    protected $table="comment";
+    protected $table="binhluan";
+    
 
     public function TinTuc(){
     	return $this->belongsTo('App\TinTuc','idTinTuc','id');

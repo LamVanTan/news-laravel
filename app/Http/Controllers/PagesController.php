@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use App\TheLoai;
 use App\TinTuc;
 use App\LoaiTin;
+use App\Comment;
 use DB;
 use App\UserAdmin;
 use Carbon\Carbon;
@@ -57,7 +58,7 @@ class PagesController extends Controller
         ->orderBy('id','DESC')
         ->take(3)
         ->get();
-     	return view('pages/LoaiTin',['loaitin'=>$loaitin,'tintuc'=>$tintuc,'tinnoibat'=>$tinnoibat,'tg'=>$now]);
+     	return view('pages/LoaiTin',['loaitin'=>$loaitin,'tintuc'=>$tintuc,'tinnoibat'=>$tinnoibat,'tg'=>$now ]);
      }
 
 
@@ -65,7 +66,13 @@ class PagesController extends Controller
         Carbon::setLocale('vi'); // hiển thị ngôn ngữ tiếng việt.
         $now = Carbon::now();
         $chitiettin=TinTuc::find($idtin);
-        return view('pages/TinTuc',['chitiettin'=>$chitiettin,'tg'=>$now]);
+        $binhluan=DB::table('binhluan')
+                      ->join('UserAdmin', 'UserAdmin.id', '=', 'binhluan.idUser')
+                      ->join('TinTuc', 'TinTuc.id', '=', 'binhluan.idTinTuc')
+                      ->select( 'binhluan.NoiDung','binhluan.created_at','tintuc.id','useradmin.name','binhluan.id')
+                      ->get();
+
+        return view('pages/TinTuc',[ 'chitiettin'=>$chitiettin, 'tg'=>$now , 'binhluan'=>$binhluan]);
      }
 
 
@@ -90,6 +97,8 @@ class PagesController extends Controller
        $password=$req->password;
        if(Auth::attempt(array('email' => $email, 'password' => $password))){
            return redirect('trangchu');
+       }else{
+         return redirect('dangnhap')->with('thongbao','Đăng Nhập Thất Bại');
        }
 
    }
@@ -105,7 +114,7 @@ class PagesController extends Controller
            
            $user->save();
 
-           return redirect('dangnhap')->with('thongbao','Thêm Thành Công');
+           return redirect('dangnhap')->with('TB_dangki','Chúc Mừng Bạn Đăng Kí Thành Công ! Mời Bạn Đăng Nhập');
    }
    
    public function logout(){
@@ -116,5 +125,17 @@ class PagesController extends Controller
 
 
 
-    
+   public function Comment($id,Request $req){
+
+     $id_tintuc= $id;
+     $Comment_tintuc= new Comment;
+     $Comment_tintuc->idUser=Auth::user()->id;
+     $Comment_tintuc->idTinTuc= $id_tintuc;
+     $Comment_tintuc->NoiDung=$req->noidung;
+     $Comment_tintuc->save();
+
+     return redirect("chitiettin/$id")->with("thongbao","bình luận thành công");
+
+   }
+  
 }

@@ -1,66 +1,39 @@
 /*phần đầu trang*/
-
-
 .search-header{
-
- padding: 10px 13px;
- 
+padding: 10px 13px;
 }
-
 .input-header{
-  background: white;
-  border-radius: 40px;
-  margin-top: 5px;
-  margin-bottom: 5px;
-  
- }
-
- .input-header input{
-  border: none;
-  border-radius:20px;
-  width:90%;
+background: white;
+border-radius: 40px;
+margin-top: 5px;
+margin-bottom: 5px;
 }
-
+.input-header input{
+border: none;
+border-radius:20px;
+width:80%;
+}
 /*kết thúc*/
-
 /*dropdown-menu*/
-
-
 #background1:hover{
-	padding: 2px 5px;
-	border-bottom: 3px solid red;
+border-bottom: 3px solid red;
 }
-
-
 a:hover{
-	text-decoration: none;
-	color: #3399CC;
+text-decoration: none;
+color: #3399CC;
 }
-
 a{
-  color: black;
+color: black;
 }
-
 #background:hover{
-  border-bottom: 5px solid lightseagreen;
-  
-  }
-
- #background{
-  color: #0099CC;
- }
-
-
-
-#mouse:hover img {
-    transform: scale(1); /*tăng kích thước lên gắp 1.5 lần ban đầu*/
-    transition:all ease-in-out 0.5s; /*hiện thị tốc đọ ảnh hiện lên với thời gian 0.5s*/
-    opacity:0.75;
+border-bottom: 2px solid lightseagreen;
 }
-
-
-
-
+#background{
+color: #0099CC;
+}
+#mouse:hover img {
+transform: scale(1); /*tăng kích thước lên gắp 1.5 lần ban đầu*/
+transition:all ease-in-out 0.5s; /*hiện thị tốc đọ ảnh hiện lên với thời gian 0.5s*/
+opacity:0.75;
+}
 /*phan đăng nhập đăng kí người dùng*/
-
-
