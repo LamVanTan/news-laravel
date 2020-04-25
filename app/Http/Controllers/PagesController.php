@@ -69,7 +69,7 @@ class PagesController extends Controller
         $binhluan=DB::table('binhluan')
                       ->join('UserAdmin', 'UserAdmin.id', '=', 'binhluan.idUser')
                       ->join('TinTuc', 'TinTuc.id', '=', 'binhluan.idTinTuc')
-                      ->select( 'binhluan.NoiDung','binhluan.created_at','tintuc.id','useradmin.name','binhluan.id')
+                      ->select( 'binhluan.NoiDung','binhluan.created_at','binhluan.idTinTuc','useradmin.name','binhluan.id')
                       ->get();
 
         return view('pages/TinTuc',[ 'chitiettin'=>$chitiettin, 'tg'=>$now , 'binhluan'=>$binhluan]);
@@ -79,12 +79,14 @@ class PagesController extends Controller
      public function sreach(Request $req){
         
           $tukhoa= $req->tkiem;
+          Carbon::setLocale('vi'); // hiển thị ngôn ngữ tiếng việt.
+          $now = Carbon::now();
           $TinTuc=TinTuc::where('TieuDe','LIKE',"%$tukhoa%")
           ->orwhere('TomTat','LIKE',"%$tukhoa%")
           ->orwhere('NoiDung','LIKE',"%$tukhoa%")
           ->orderBy('id','DESC')
           ->get();
-          return view('pages/sreach',['sreach'=>$TinTuc,'tukhoa'=>$tukhoa]);
+          return view('pages/sreach',['sreach'=>$TinTuc,'tukhoa'=>$tukhoa,'tg'=>$now]);
      }
 
      public function getdangnhap(){

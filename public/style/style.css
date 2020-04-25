@@ -1,19 +1,4 @@
-/*phần đầu trang*/
-.search-header{
-padding: 10px 13px;
-}
-.input-header{
-background: white;
-border-radius: 40px;
-margin-top: 5px;
-margin-bottom: 5px;
-}
-.input-header input{
-border: none;
-border-radius:20px;
-width:80%;
-}
-/*kết thúc*/
+
 /*dropdown-menu*/
 #background1:hover{
 border-bottom: 3px solid red;
@@ -25,6 +10,10 @@ color: #3399CC;
 a{
 color: black;
 }
+a:hover:focus{
+	background-color: #EEEEEE;
+	color: black;
+}
 #background:hover{
 border-bottom: 2px solid lightseagreen;
 }
@@ -32,8 +21,113 @@ border-bottom: 2px solid lightseagreen;
 color: #0099CC;
 }
 #mouse:hover img {
-transform: scale(1); /*tăng kích thước lên gắp 1.5 lần ban đầu*/
+transform: scale(1.1,1.1);/*tăng kích thước lên gắp 1.5 lần ban đầu*/
 transition:all ease-in-out 0.5s; /*hiện thị tốc đọ ảnh hiện lên với thời gian 0.5s*/
-opacity:0.75;
 }
+
+
 /*phan đăng nhập đăng kí người dùng*/
+
+.form-sreach{
+      padding:2%;
+   }
+  .form-sreach #sreach{
+      width:100%;
+      padding: 2px 30px;   
+      background-color: white;
+      border-radius:15px;
+      box-sizing: border-box;
+      position: relative;
+      bottom:25px;
+      outline: none;
+      border: none;
+      box-shadow: 2px 5px 3px #BBBBBB;
+   }
+
+
+ *{
+   font-family: "montserrat",sans-serif;
+   }
+   /*phân đăng nhập với đăng ký*/
+   .home_login{
+   position: relative;
+   width: 100%;
+   height: 600px;	
+   overflow: hidden;
+   padding: 20px 0;	
+   }
+   .btn_button{
+   width:50%;
+   margin:0 auto;
+   box-shadow:0 0 10px 0 #353331;
+   border-radius:20px;
+   position: relative;
+   text-align: center;
+   padding: 0;
+   }
+  
+   .btn_sub{
+   padding:2% 5%;
+   cursor: pointer;
+   color:black;
+   background: transparent;
+   border :none;
+   }
+   .btn_sub:focus{
+     outline: none;
+     box-shadow: 0px 3px 0px red;
+     border-radius:5px;
+   }
+   .login_form{
+   position: absolute;
+   top:150px;
+   left: 0;
+   width:100%;
+   transition: .4s;
+   padding: 0 20%;
+   }
+   .register_form{
+   position: absolute;
+   top:100px;
+   right:-100%;
+   width: 100%;
+   transition: .4s;
+   padding: 0 20%;
+   }
+   .txt{
+   width: 100%;
+   border-top: 0;
+   border-left: 0;
+   border-right: 0;
+   border-bottom: 1px solid #738685;
+   background:transparent;
+   padding: 10px 0;
+   margin: 5px 0;
+   outline:none;
+   }
+   /*nút đănh nhập với đăng kí*/
+   .submit{
+   background-color:#3366FF ;
+   display: block;
+   width: 100%;
+   padding: 5px 0;
+   border-radius: 20px;
+   margin: 10px 0;
+   border:none;
+   cursor: pointer;
+   color:black;
+   outline: none;
+   }
+   .showed{
+   left:-100%;
+   }
+   .showeds{
+   right:0;
+   }
+   .show{
+   left:25%;
+   }
+   .error{
+   font-size: 14px;
+   color: #f3cd46;
+   }

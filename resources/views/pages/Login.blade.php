@@ -1,11 +1,10 @@
 @extends('layout.master')
 @section('noidung')
-<div class="row" style="margin-top: 10px;">
+<div class="row">
    <div class="col-sm-3"></div>
-   <div class="col-12 col-sm-6">
+   <div class="col-12 col-sm-6" style="padding: 15px 0;">
       <div class="home_login">
          <div class="btn_button">
-            <div class ="btn"></div>
             <button class="btn_sub">Đăng Nhập</button> 
             <button class="btn_sub">Đăng Ký</button> 
          </div>
@@ -25,6 +24,7 @@
             <input class="txt" type="password" name="password" placeholder="Mật Khẩu"/>
             <input class="submit" type="submit" name="submit" value="Đăng Nhập">
          </form>
+
          <form action="dangky" class="register_form" method="POST" id="register">
             <input type="hidden" name="_token" value="{{csrf_token()}}">
             <input class="txt" type="text" name="name" placeholder="Tên Đăng Nhập"/>
@@ -33,6 +33,7 @@
             <input class="txt" type="password" name="passreset" placeholder="Nhập Lại Mật Khẩu"/>
             <input class="submit" type="submit" name="submit" value="Đăng Ký">
          </form>
+
       </div>
    </div>
    <div class="col-sm-3"></div>
@@ -125,94 +126,4 @@
    
 </script>
 @endsection
-<style type="text/css">
-   *{
-   font-family: "montserrat",sans-serif;
-   }
-   /*phân đăng nhập với đăng ký*/
-   .home_login{
-   position: relative;
-   /*left:32%;*/
-   width: 100%;
-   height: 600px;	
-   overflow: hidden;	
-   }
-   .btn_button{
-   width:50%;
-   margin:15px auto;
-   box-shadow:0 0 10px 0 #353331;
-   border-radius: 20px;
-   position: relative;
-   }
-   .btn{
-   position: absolute;
-   top:0;
-   left:0;
-   width:25%;
-   border-radius:10px;
-   transition: .3s;
-   background-color: red;
-   }
-   .btn_sub{
-   padding: 2% 10%;
-   cursor: pointer;
-   color:black;
-   background: transparent;
-   outline: none;
-   position: relative;
-   left: 8%;
-   border :none;
-   }
-   .login_form{
-   position: absolute;
-   top:150px;
-   left: 0;
-   width:100%;
-   transition: .4s;
-   padding: 0 20%;
-   }
-   .register_form{
-   position: absolute;
-   top:100px;
-   right:-100%;
-   width: 100%;
-   transition: .4s;
-   padding: 0 20%;
-   }
-   .txt{
-   width: 100%;
-   border-top: 0;
-   border-left: 0;
-   border-right: 0;
-   border-bottom: 1px solid #738685;
-   background:transparent;
-   padding: 10px 0;
-   margin: 5px 0;
-   outline:none;
-   }
-   /*nút đănh nhập với đăng kí*/
-   .submit{
-   background-color:#3366FF ;
-   display: block;
-   width: 100%;
-   padding: 5px 0;
-   border-radius: 20px;
-   margin: 10px 0;
-   border:none;
-   cursor: pointer;
-   color:black;
-   }
-   .showed{
-   left:-100%;
-   }
-   .showeds{
-   right:0;
-   }
-   .show{
-   left:25%;
-   }
-   .error{
-   font-size: 14px;
-   color: #f3cd46;
-   }
-</style>
+  

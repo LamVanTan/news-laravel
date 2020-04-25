@@ -51,10 +51,9 @@
       <a href="chitiettin/{{$tt->id}}">
          <div class="row" style="border-bottom: 1px solid #e2e1d9;  margin-bottom: 10px;" >
             <div class="col-sm-4 col-12" style="margin:15px 0px;" id="mouse">
-               <img class="rounded mx-auto d-block img-fluid" src="img/{{$tt->Hinh}}" style="width: 70%" 
-                  height="100">
+               <img class="rounded mx-auto d-block img-fluid" src="img/{{$tt->Hinh}}" style="width:100%" >
             </div>
-            <div class="col-sm-8 col-12" style="margin:15px 0px;">
+            <div class="col-sm-8" style="margin:15px 0px;">
                <h5>{{$tt->TieuDe}}</h5>
                <p style="color: gray">{{$tt->TomTat}}</p>
                <small style="color:silver"><?php 
@@ -76,30 +75,11 @@
                <img src="img/quangcao4.jpg" class="rounded img-fluid" style="width: 100%">
             </div>
          </div>
+         
          <div class="row">
-            <div class="col-sm-12 col-12">
+            <div class="col-sm-12">
                <div class="row">
-                  <div class="col-sm-12 col-12">
-                     <h5 style="color: #3399CC;width: 75px;border-bottom:3px solid red; border-radius: 5px;">Liên Lạc</h5>
-                  </div>
-               </div>
-               <div class="row">
-                  <div class="col-sm-4 col-4">
-                     <img src="img/fb.png" class="rounded" style="width: 100%" height="100px">
-                  </div>
-                  <div class="col-sm-4 col-4">
-                     <img src="img/intargam.jpg" class="rounded" style="width: 100%" height="100px">
-                  </div>
-                  <div class="col-sm-4 col-4">
-                     <img src="img/twitter.png" class="rounded" style="width: 100%" height="100px">
-                  </div>
-               </div>
-            </div>
-         </div>
-         <div class="row">
-            <div class="col-sm-12 col-12">
-               <div class="row">
-                  <div class="col-sm-12 col-12">
+                  <div class="col-sm-12">
                      <h5 style="color: #3399CC; border-bottom: 3px solid red; width: 125px; margin-top: 30px; border-radius: 5px;">
                         Tin Cập Nhập
                      </h5>
@@ -107,12 +87,13 @@
                </div>
                @foreach($tinnoibat as $noibat)
                <div class="row" style="margin-top: 10px;">
-                  <div class="col-sm-3 col-3" id="mouse">
+                  <div class="col-4 col-sm-3" id="mouse">
                      <a href="chitiettin/{{$noibat->id}}">
-                     <img src="img/{{$noibat->Hinh}}"  class="rounded mx-auto d-block" alt="Paris" style="width: 100%" height="50">  
+                     <img src="img/{{$noibat->Hinh}}" class="rounded  mx-auto d-block img-fluid" alt="Paris" style="width: 100%" />  
                      </a>
                   </div>
-                  <div class="col-sm-9 col-9">
+
+                  <div class="col-8 col-sm-9">
                      <a href="chitiettin/{{$noibat->id}}">
                         <h6>{{$noibat->TieuDe}}</h6>
                      </a>
@@ -126,15 +107,15 @@
             </div>
          </div>
          <div class="row" style="margin-top: 30px;">
-            <div class="col-sm-12 col-12">
+            <div class="col-sm-12">
                <div class="row">
-                  <div class="col-sm-12 col-12">
+                  <div class="col-sm-12">
                      <h5 style="color: #3399CC; border-bottom: 3px solid red; width: 50px; border-radius: 5px;">Video</h5>
                   </div>
                </div>
                <div class="row">
                   <div class="col-sm-12 col-12">
-                     <video width="320" height="240" controls>
+                     <video width="100%" controls>
                         <source src="video/video.mp4" type="video/mp4">
                         <source src="movie.ogg" type="video/ogg">
                         Your browser does not support the video tag.

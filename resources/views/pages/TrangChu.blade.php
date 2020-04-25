@@ -6,7 +6,7 @@
       <!-- phần left -->
       <div class="col-sm-8">
          <div class="row">
-            <div class="col-12 col-sm-12">
+            <div class="col-sm-12">
                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                   <ol class="carousel-indicators">
                      <?php $i=0; ?>
@@ -24,10 +24,10 @@
                      @else class="carousel-item" 
                      @endif >
                      <a href="chitiettin/{{$slie->id}}">
-                        <img class="d-block w-100 rounded img-fluid" 
-                           src="img/{{$slie->Hinh}}" alt="First slide" style="width: 100%" height="350">
-                        <h5>{{$slie->TieuDe}}</h5>
+                        <img class="rounded img-fluid" src="img/{{$slie->Hinh}}" alt="First slide" style="width: 100%;">
+                        <h5 style="margin-top:5px;">{{$slie->TieuDe}}</h5>
                      </a>
+
                   </div>
                   <?php  $i++; ?>
                   @endforeach
@@ -44,20 +44,20 @@
          </div>
       </div>
       <!--  tin hàng ngang -->
-      <div class="row" style="margin-top:10px;" >
+      <div class="row" style="margin-top:10px; border-bottom: 1px solid #e2e1d9;" >
          @foreach($tinthuong as $th)
-         <div class="col-6 col-sm-4" >
+         <div class="col-12 col-sm-4" >
             <div class="row">
-               <div class="col-12 col-sm-12">
+               <div class="col-sm-12">
                   <a href="chitiettin/{{$th->id}}">
                      <div class="row">
-                        <div class="col-12 col-sm-12" id="mouse">
-                           <img class="rounded" src="img/{{$th->Hinh}}"
-                              style="width: 100%" height="100">
+                        <div class="col-sm-12" id="mouse">
+                           <img class="rounded img-fluid" src="img/{{$th->Hinh}}"
+                              style="width: 100% ; height:120px;">
                         </div>
                      </div>
                      <div class="row">
-                        <div class="col-12 col-sm-12">
+                        <div class="col-sm-12">
                            <b>{{$th->TieuDe}}</b><br>
                            <small style="color:silver"><?php 
                               $dt= $th->created_at;
@@ -128,6 +128,7 @@
       </div>
       <!-- kêt thúc phần right -->
    </div>
+</div>
 </div>
 <style type="text/css">
    .close{

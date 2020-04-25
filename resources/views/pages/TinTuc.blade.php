@@ -8,9 +8,9 @@
             $dt= $chitiettin->created_at;
             echo $th = $dt->diffForHumans($tg); ?>
          </small>
-         <p>{{$chitiettin->TomTat}}
+         <p style="line-height:30px">{{$chitiettin->TomTat}}
             <img class="rounded img-fluid" src="img/{{$chitiettin->Hinh}}" alt="img" style="width: 100%" height="350px">
-         <p style="font-size:18px;">{{$chitiettin->NoiDung}}</p>
+         <p style="line-height: 30px;">{{$chitiettin->NoiDung}}</p>
         
 
 
@@ -37,8 +37,9 @@
          <hr>
          <!-- Posted Comments -->
          <!-- Comment -->
+        
          @foreach($binhluan as $bl)
-         
+            @if($bl->idTinTuc == $chitiettin->id)
               <div class="row like">
                 <div class="col-sm-12">
                <b style="display: block;">{{$bl->name}}</b>
@@ -55,7 +56,10 @@
              
          </div>
          <hr>
+         @endif
          @endforeach
+         
+
       </div>
       <div class="col-sm-3 col-12" >
          <div class="row QC" style="margin-bottom: 50px;margin-top: 23px;">

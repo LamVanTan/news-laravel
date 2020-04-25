@@ -3,7 +3,7 @@
       <div class="row" style="margin-top: 20px;">
          <div class="col-sm-6">
             <div class="container">
-               <img src="img/news1.png"><br>
+               <img src="img/news1.png" class="rounded img-fluid"><br>
                <b style="color: #696969; font-size: 11px;">Báo news.com...</b><br>
                <b style="color: #696969; font-size: 11px;">Giấy phép số 1818/GP-TTĐT do Sở Thông tin và Truyền thông Hà Nội cấp ngày 05/05/2017
                Đơn vị chủ quản: Công ty Cổ phần Công nghệ EPI * Chịu trách nhiệm: Nguyễn Thanh Tùng

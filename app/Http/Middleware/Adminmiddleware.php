@@ -20,7 +20,7 @@ class Adminmiddleware
             if($user->quyen==1){
               return $next($request);
            }else{
-              return redirect('admin/dangnhap');
+              return redirect('admin/dangnhap')->with('thongbao','Đăng Nhập Thất Bại, Bạn Không Phải Admin');
            }
         }else
         return redirect('admin/dangnhap');
