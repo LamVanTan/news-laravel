@@ -66,11 +66,11 @@ class PagesController extends Controller
         Carbon::setLocale('vi'); // hiển thị ngôn ngữ tiếng việt.
         $now = Carbon::now();
         $chitiettin=TinTuc::find($idtin);
-        $binhluan=DB::table('binhluan')
-                      ->join('UserAdmin', 'UserAdmin.id', '=', 'binhluan.idUser')
-                      ->join('TinTuc', 'TinTuc.id', '=', 'binhluan.idTinTuc')
-                      ->select( 'binhluan.NoiDung','binhluan.created_at','binhluan.idTinTuc','useradmin.name','binhluan.id')
-                      ->get();
+        $binhluan=Comment::with('UserAdmin')->get();
+                      // ->join('UserAdmin', 'UserAdmin.id', '=', 'binhluan.idUser')
+                      // ->join('TinTuc', 'TinTuc.id', '=', 'binhluan.idTinTuc')
+                      // ->select( 'binhluan.NoiDung','binhluan.created_at','binhluan.idTinTuc','useradmin.name','binhluan.id')
+                     
 
         return view('pages/TinTuc',[ 'chitiettin'=>$chitiettin, 'tg'=>$now , 'binhluan'=>$binhluan]);
      }

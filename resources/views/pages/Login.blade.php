@@ -16,7 +16,7 @@
             @endif
             @if(session('TB_dangki'))
             <div class="alert alert-success tb" style="overflow: hidden;">
-               {{session('thongbao')}}
+               {{session('TB_dangki')}}
             </div>
             @endif
             <input type="hidden" name="_token" value="{{csrf_token()}}">

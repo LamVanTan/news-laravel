@@ -4,7 +4,7 @@
 <div class="container">
    <div class="row" style="margin-top: 10px;">
       <!-- phần left -->
-      <div class="col-sm-8">
+      <div class="col-sm-8" style="margin-bottom: 5px;">
          <div class="row">
             <div class="col-sm-12">
                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -25,9 +25,10 @@
                      @endif >
                      <a href="chitiettin/{{$slie->id}}">
                         <img class="rounded img-fluid" src="img/{{$slie->Hinh}}" alt="First slide" style="width: 100%;">
-                        <h5 style="margin-top:5px;">{{$slie->TieuDe}}</h5>
+                        <div class="carousel-caption">
+                         <p>{{$slie->TieuDe}}</p>
+                       </div>
                      </a>
-
                   </div>
                   <?php  $i++; ?>
                   @endforeach
@@ -99,10 +100,10 @@
       @foreach($tinnoibat as $nb)
       <a href="chitiettin/{{$nb->id}}">
          <div class="row" style="margin-bottom: 20px;">
-            <div class="col-sm-3 col-3" id="mouse">  
+            <div class="col-sm-3 col-5" id="mouse">  
                <img src="img/{{$nb->Hinh}}"  class="rounded mx-auto d-block" alt="Paris" style="width: 100%">  
             </div>
-            <div class="col-sm-9 col-9">
+            <div class="col-sm-9 col-7">
                <h6>{{$nb->TieuDe}}</h6>
                <small style="color:silver"><?php 
                   $dt= $nb->created_at;
