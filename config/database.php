@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Str;
-
+$DATABASE_URL = parse_url(url: 'DATABASE_URL');
 return [
 
     /*
@@ -15,7 +15,7 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION', 'mysql'),
+    'default' => env('DB_CONNECTION', 'pgsql'),
 
     /*
     |--------------------------------------------------------------------------
@@ -67,11 +67,11 @@ return [
             'driver' => 'pgsql',
             'url' => env('DATABASE_URL'),
             //'host' => env('DB_HOST', '127.0.0.1'),
-            'host'=>'ec2-3-95-87-221.compute-1.amazonaws.com',
-            'username'=>'xtvoteqwmwbijd',
-            'password'=>'2252f5af61c7379fdddb355ee4f564484e852b1879c6545f4e4ad480419fedeb',
-            'database'=>'d4saq6j9683aed',
-            'post'=>'5432',
+            'host'=>$DATABASE_URL['host'],
+            'username'=>$DATABASE_URL['user'],
+            'password'=>$DATABASE_URL['pass'],
+            'database'=>ltrim($DATABASE_URL['host'], charlist:"/"),
+            'post'=>$DATABASE_URL['port'],
             //'port' => env('DB_PORT', '5432'),
             //'database' => env('DB_DATABASE', 'forge'),
             //'username' => env('DB_USERNAME', 'forge'),
